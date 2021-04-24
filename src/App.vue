@@ -13,6 +13,9 @@
 					label="Subject"
 					:options="['Option A', 'Option B', 'Option C']"
 				/>
+				<BaseCheckbox
+					label="item"
+				/>
 				<BaseButton
 					type="submit"
 					value="Submit"

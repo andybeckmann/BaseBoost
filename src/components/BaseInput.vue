@@ -1,11 +1,13 @@
 <template>
-	<label v-if="label">{{ label }}</label>
-	<input
-		v-bind="$attrs"
-		:placeholder="label"
-		:value="modelValue"
-		@input="$emit('update:modelValue', $event.target.value)"
-	>
+	<div class="input-group">
+		<label v-if="label">{{ label }}</label>
+		<input
+			v-bind="$attrs"
+			:placeholder="label"
+			:value="modelValue"
+			@input="$emit('update:modelValue', $event.target.value)"
+		>
+	</div>
 </template>
 
 <script>
@@ -25,6 +27,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.input-group {
+	padding: 0 0 15px 0;
+}
+
 label {
 	text-transform: uppercase;
 	font-size: 14px;
