@@ -2,6 +2,8 @@
 	<div class="input-group">
 		<input
 			type="checkbox"
+			:checked="modelValue"
+			@change="$emit('update:modelValue', $event.target.checked)"
 		/>
 		<label v-if="label">{{ label }}</label>
 	</div>
@@ -13,6 +15,11 @@ export default {
 		label: {
 			type: String,
 			default: ''
+		},
+
+		modelValue: {
+			type: Boolean,
+			default: false
 		}
 	}
 }
@@ -25,6 +32,7 @@ export default {
 	input[type=checkbox] {
 		position: absolute;
 		opacity: 0; 
+		z-index:2;
 
 		& + label {
 			position: relative;
@@ -62,6 +70,7 @@ export default {
 			top: -2px;
 			font-size: 20px;
 			font-weight: bold;
+			z-index: 1;
 		}
 	}
 }

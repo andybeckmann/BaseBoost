@@ -14,7 +14,8 @@
 					:options="['Option A', 'Option B', 'Option C']"
 				/>
 				<BaseCheckbox
-					label="item"
+					v-model="data.subscribe"
+					label="Subscribe to newsletter"
 				/>
 				<BaseButton
 					type="submit"
@@ -27,7 +28,8 @@
 			<div>&nbsp;&nbsp;data:</div>
 			<div>&nbsp;&nbsp;&nbsp;&nbsp;{</div>
 			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <b>{{ data.title }}</b>,</div>
-			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subject: <b>{{ data.subject }}</b></div>
+			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subject: <b>{{ data.subject }}</b>,</div>
+			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subscribe: <b>{{ data.subscribe }}</b></div>
 			<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
 			<div>}</div>
 		</div>
@@ -40,7 +42,8 @@ export default {
 		return {
 			data: {
 				title: '',
-				subject: ''
+				subject: '',
+				subscribe: false
 			}
 			
 		}
