@@ -1,5 +1,5 @@
 <template>
-	<label>{{ label }}</label>
+	<label v-if="label">{{ label }}</label>
 	<input
 		v-bind="$attrs"
 		:placeholder="label"
@@ -24,6 +24,28 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+label {
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	display: inline-block;
+	margin-top: 10px;
+}
 
+input{
+	background: #fff;
+	padding: 15px 20px;
+	margin: 0 0 10px;
+	outline: none;
+	border: 1px solid #ccc;
+	font-size: 18px;
+	width: 100%;
+	border-radius: 4px;
+	display: block;
+	box-shadow: 	
+				0 3px 3px rgba(0, 0, 0, 0.05),
+				inset 0px 10px 10px #eee;
+}
 </style>
