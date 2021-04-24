@@ -1,26 +1,44 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+	<div id="app">
+		<h1>{{ item.title }}</h1>
+		<form>
+			<BaseInput
+				v-model="item.title"
+				label="Title"
+				type="text"
+
+			/>
+			<BaseButton
+				type="submit"
+				value="Submit"
+			/>
+		</form>
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BaseInput from './components/BaseInput'
+import BaseButton from './components/BaseButton'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+	data () {
+		return {
+			item: {
+				title: 'x'
+			}
+			
+		}
+	},
+
+	components: {
+		BaseButton, BaseInput
+	}
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style>
+* {
+	box-sizing: border-box;
+	font-family: sans-serif;
 }
 </style>
