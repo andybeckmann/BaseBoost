@@ -29,15 +29,16 @@ export default {
 <style lang="scss" scoped>
 .input-group {
 	padding: 0 0 15px 0;
+	position: relative;
 }
 
 label {
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: bold;
-	margin-bottom: 5px;
 	display: inline-block;
 	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 input{
