@@ -17,6 +17,11 @@ export default {
 <style lang="scss" scoped>
 .input-group {
 	padding: 0 0 15px 0;
+	position: relative;
+
+	label {
+		font-size: 18px;
+	}
 
 	.button {
 		background: #111;
