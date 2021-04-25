@@ -2,7 +2,7 @@
 	<div id="app">
 		<div class="app--demo">
 			<h1>BaseBoost</h1>
-			<form>
+			<form @submit.prevent="sendForm">
 				<BaseInput
 					v-model="data.title"
 					label="Text"
@@ -68,6 +68,12 @@ export default {
 				optionC: false
 			}
 			
+		}
+	},
+
+	methods: {
+		sendForm () {
+			// XHR to API here
 		}
 	}
 }
