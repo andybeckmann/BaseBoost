@@ -147,6 +147,8 @@ form {
 
 	.app--data {
 		padding: 50px 50px 50px 0;
+		position: fixed;
+		right: 0;
 
 		> div {
 			background: #eee;
