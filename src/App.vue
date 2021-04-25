@@ -5,18 +5,34 @@
 			<form>
 				<BaseInput
 					v-model="data.title"
-					label="Title"
+					label="Text"
 					type="text"
 				/>
 				<BaseSelect
 					v-model="data.subject"
-					label="Subject"
+					label="Select"
 					:options="['Option A', 'Option B', 'Option C']"
 				/>
-				<BaseCheckbox
-					v-model="data.subscribe"
-					label="Subscribe to newsletter"
+				<BaseRadioGroup
+					v-model="data.preference"
+					label="Radio"
+					:options="[{ label: 'Option A', value: 'Option A' }, { label: 'Option B', value: 'Option B'}, { label: 'Option C', value: 'Option C'}]"
 				/>
+				<div class="checkbox-group">
+					<label>Checkbox</label>
+					<BaseCheckbox
+						v-model="data.optionA"
+						label="Option A"
+					/>
+					<BaseCheckbox
+						v-model="data.optionB"
+						label="Option B"
+					/>
+					<BaseCheckbox
+						v-model="data.optionC"
+						label="Option C"
+					/>
+				</div>
 				<BaseButton
 					type="submit"
 					value="Submit"
@@ -24,14 +40,17 @@
 			</form>
 		</div>
 		<div class="app--data">
-			<div>{</div>
-			<div>&nbsp;&nbsp;data:</div>
-			<div>&nbsp;&nbsp;&nbsp;&nbsp;{</div>
-			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <b>{{ data.title }}</b>,</div>
-			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subject: <b>{{ data.subject }}</b>,</div>
-			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subscribe: <b>{{ data.subscribe }}</b></div>
-			<div>&nbsp;&nbsp;&nbsp;&nbsp;}</div>
-			<div>}</div>
+			<div><span>{</span></div>
+			<div>&nbsp;&nbsp;<span>data:</span></div>
+			<div>&nbsp;&nbsp;&nbsp;&nbsp;<span>{</span></div>
+			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>title:</span> <b>{{ data.title }}</b><span>,</span></div>
+			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>subject:</span> <b>{{ data.subject }}</b><span>,</span></div>
+			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>preference:</span> <b>{{ data.preference }}</b><span>,</span></div>
+			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>optionA:</span> <b>{{ data.optionA }}</b><span>,</span></div>
+			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>optionB:</span> <b>{{ data.optionB }}</b><span>,</span></div>
+			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>optionC:</span> <b>{{ data.optionC }}</b></div>
+			<div>&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span></div>
+			<div><span>}</span></div>
 		</div>
 	</div>
 </template>
@@ -43,7 +62,10 @@ export default {
 			data: {
 				title: '',
 				subject: '',
-				subscribe: false
+				preference: '',
+				optionA: false,
+				optionB: false,
+				optionC: false
 			}
 			
 		}
@@ -72,15 +94,30 @@ body {
 	}
 
 	.app--demo {
-		
+		.checkbox-group {
+			padding: 0 0 15px 0;
+			position: relative;
+
+			& > label {
+				text-transform: uppercase;
+				font-size: 14px;
+				font-weight: bold;
+				margin-bottom: 10px;
+				display: inline-block;
+			}
+		}
 	}
 
 	.app--data {
-		border: 5px dashed #ccc;
 		border-radius: 10px;
 		background: #eee;
+		color: #111;
 		font-size: 20px;
 		margin: 50px 50px 50px 0;
+
+		span {
+			color: #999;
+		}
 	}
 }
 </style>
