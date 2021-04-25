@@ -3,36 +3,51 @@
 		<div class="app--demo">
 			<h1>BaseBoost</h1>
 			<form @submit.prevent="sendForm">
-				<BaseInput
-					v-model="data.title"
-					label="Text"
-					type="text"
-				/>
-				<BaseSelect
-					v-model="data.subject"
-					label="Select"
-					:options="['Option A', 'Option B', 'Option C']"
-				/>
-				<BaseRadioGroup
-					v-model="data.preference"
-					label="Radio"
-					:options="[{ label: 'Option A', value: 'Option A' }, { label: 'Option B', value: 'Option B'}, { label: 'Option C', value: 'Option C'}]"
-				/>
-				<div class="checkbox-group">
-					<label>Checkbox</label>
-					<BaseCheckbox
-						v-model="data.optionA"
-						label="Option A"
+				<fieldset>
+					<legend>Text input example</legend>
+					<p>What is your name?</p>
+					<BaseInput
+						v-model="data.name"
+						label="Text"
+						type="text"
 					/>
-					<BaseCheckbox
-						v-model="data.optionB"
-						label="Option B"
+				</fieldset>
+				<fieldset>
+					<legend>Select options example</legend>
+					<p>Do you prefer Option A, Option B, or Option C?</p>
+					<BaseSelect
+						v-model="data.subject"
+						label="Select"
+						:options="['Option A', 'Option B', 'Option C']"
 					/>
-					<BaseCheckbox
-						v-model="data.optionC"
-						label="Option C"
+				</fieldset>
+				<fieldset>
+					<legend>Radio group example</legend>
+					<p>Do you prefer Option A, Option B, or Option C?</p>
+					<BaseRadioGroup
+						v-model="data.preference"
+						label=""
+						:options="[{ label: 'Option A', value: 'Option A' }, { label: 'Option B', value: 'Option B'}, { label: 'Option C', value: 'Option C'}]"
 					/>
-				</div>
+				</fieldset>
+				<fieldset>
+					<legend>Checkbox group example</legend>
+					<p>Do you prefer Option A, Option B, or Option C?</p>
+					<div class="checkbox-group">
+						<BaseCheckbox
+							v-model="data.optionA"
+							label="Option A"
+						/>
+						<BaseCheckbox
+							v-model="data.optionB"
+							label="Option B"
+						/>
+						<BaseCheckbox
+							v-model="data.optionC"
+							label="Option C"
+						/>
+					</div>
+				</fieldset>
 				<BaseButton
 					type="submit"
 					value="Submit"
@@ -40,17 +55,19 @@
 			</form>
 		</div>
 		<div class="app--data">
-			<div><span>{</span></div>
-			<div>&nbsp;&nbsp;<span>data:</span></div>
-			<div>&nbsp;&nbsp;&nbsp;&nbsp;<span>{</span></div>
-			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>title:</span> <b>{{ data.title }}</b><span>,</span></div>
-			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>subject:</span> <b>{{ data.subject }}</b><span>,</span></div>
-			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>preference:</span> <b>{{ data.preference }}</b><span>,</span></div>
-			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>optionA:</span> <b>{{ data.optionA }}</b><span>,</span></div>
-			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>optionB:</span> <b>{{ data.optionB }}</b><span>,</span></div>
-			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>optionC:</span> <b>{{ data.optionC }}</b></div>
-			<div>&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span></div>
-			<div><span>}</span></div>
+			<div>
+				<div><span>{</span></div>
+				<div>&nbsp;&nbsp;<span>data:</span></div>
+				<div>&nbsp;&nbsp;&nbsp;&nbsp;<span>{</span></div>
+				<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>name:</span> <b>{{ data.name }}</b><span>,</span></div>
+				<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>subject:</span> <b>{{ data.subject }}</b><span>,</span></div>
+				<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>preference:</span> <b>{{ data.preference }}</b><span>,</span></div>
+				<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>optionA:</span> <b>{{ data.optionA }}</b><span>,</span></div>
+				<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>optionB:</span> <b>{{ data.optionB }}</b><span>,</span></div>
+				<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>optionC:</span> <b>{{ data.optionC }}</b></div>
+				<div>&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span></div>
+				<div><span>}</span></div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -60,7 +77,7 @@ export default {
 	data () {
 		return {
 			data: {
-				title: '',
+				name: '',
 				subject: '',
 				preference: '',
 				optionA: false,
@@ -90,13 +107,27 @@ body {
 	margin: 0;
 }
 
+form {
+	fieldset {
+		border: 1px solid #ddd;
+		margin: 25px 0;
+		border-radius: 4px;
+
+		legend {
+			font-weight: bold;
+			font-size: 14px;
+			text-transform: uppercase;
+		}
+	}
+}
+
 #app {
 	display: flex;
 	width: 100%;
 
 	.app--demo, .app--data {
 		width: 50%;
-		padding: 50px;
+		padding: 15px 50px;
 	}
 
 	.app--demo {
@@ -115,11 +146,15 @@ body {
 	}
 
 	.app--data {
-		border-radius: 10px;
-		background: #eee;
-		color: #111;
-		font-size: 20px;
-		margin: 50px 50px 50px 0;
+		padding: 50px 50px 50px 0;
+
+		> div {
+			background: #eee;
+			padding: 50px;
+			border-radius: 4px;
+			color: #111;
+			font-size: 20px;
+		}
 
 		span {
 			color: #999;
