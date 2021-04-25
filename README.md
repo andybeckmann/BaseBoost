@@ -1,6 +1,12 @@
-# basebooster
+# BaseBoost
 
-## Project setup
+BaseBoost is a collection base components for JavaScript application development using Vue.
+
+## Screenshot
+
+![Screenshot](/screenshot.png?raw=true)
+
+## Setup
 ```
 npm install
 ```
@@ -19,6 +25,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
