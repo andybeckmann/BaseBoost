@@ -28,11 +28,25 @@ export default {
 <style lang="scss" scoped>
 .input-group {
 	padding: 0 0 15px 0;
+	position: relative;
+	border-top: 1px solid #ddd;
+	display: block;
+	padding-top: 15px;
+
+	label {
+		font-size: 18px;
+	}
 
 	input[type=checkbox] {
 		position: absolute;
 		opacity: 0; 
-		z-index:2;
+		z-index: 2;
+		cursor: pointer;
+		font-size: 18px;
+		top: -1px;
+		left: 1px;
+		width: 26px;
+		height: 26px;
 
 		& + label {
 			position: relative;
