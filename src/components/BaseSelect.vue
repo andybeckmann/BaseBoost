@@ -1,8 +1,9 @@
 <template>
 	<div class="input-group">
-		<label v-if="label">{{ label }}</label>
+		<label v-if="label" :for="uuid">{{ label }}</label>
 		<div class="select-item-wrapper">
 			<select 
+				:id="uuid"
 				:value="modelValue"
 				:placeholder="label"
 				v-bind="{
@@ -26,6 +27,7 @@
 </template>
 
 <script>
+import UniqueID from '../features/UniqueID'
 export default {
 	props: {
 		label:  {
@@ -42,6 +44,13 @@ export default {
 			type: [String, Number],
 			default: ''
 		}
+	},
+
+	setup () { 
+		const uuid = UniqueID().getID() 
+		return { 
+			uuid 
+		} 
 	}
 }
 </script>

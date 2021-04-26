@@ -1,6 +1,5 @@
 <template>
 	<div class="radio-group">
-		<label v-if="label">{{ label }}</label>
 		<BaseRadio
 			v-for="option in options"
 			:key="option.value"

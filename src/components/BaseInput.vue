@@ -1,8 +1,9 @@
 <template>
 	<div class="input-group">
-		<label v-if="label">{{ label }}</label>
+		<label :for="uuid" v-if="label">{{ label }}</label>
 		<input
 			v-bind="$attrs"
+			:id="uuid"
 			:placeholder="label"
 			:value="modelValue"
 			@input="$emit('update:modelValue', $event.target.value)"
@@ -11,8 +12,14 @@
 </template>
 
 <script>
+import UniqueID from '../features/UniqueID'
 export default {
 	props: {
+		id: {
+			type: String,
+			default: ''
+		},
+
 		label:  {
 			type: String,
 			default: ''
@@ -22,7 +29,14 @@ export default {
 			type: [String, Number],
 			default: ''
 		}
-	}
+	},
+
+	setup () { 
+		const uuid = UniqueID().getID() 
+		return { 
+			uuid 
+		} 
+	} 
 }
 </script>
 
